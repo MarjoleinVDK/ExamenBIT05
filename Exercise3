@@ -1,0 +1,43 @@
+UNF:
+DB (PatientNr, Full_name, Bed_Nr, Ward_nr, Ward_name, [DrugNr, Name, Description, Dosage, Method of Admin, Units per Day, Start_date, Finish_Date])
+
+1NF:
+repeating groups ==> yes, per drug Nr give the same info of patient
+key attributes are defined
+
+DB (*PatientNr*, Full_name,Bed_Nr,* Ward_nr*, Ward_name, *DrugNr*, Name, Description, Dosage, Method of Admin, Units per Day, *Start_date*, Finish_Date)
+
+2NF:
+
+Partiel dependencies: PatientNr ==> Full name / Ward_nr ==> Ward_name / DrugNr ==> Name, Description, Dosage, Method of Admin / Units per day and finish day not dependent on ward nr
+
+Patient(*PatientNr*, Full_name)
+Ward(*Ward_nr*, Ward_name)
+Drug(*Drugnr*, Name, Description, Dosage, Method of Admin)
+Drug_administration(*PatientNr*, *DrugNr*, Units per Day, *Start_date*, Finish_Date)
+Patient_booking(*PatientNr*, Bed_nr, *Ward_nr*, *DrugNr*, *Start_date*)
+
+3NF:
+Transitive depdendency ==> no 
+2NF
+
+BCNF:
+3 NF
+
+Oplossing:
+1NF:
+DB: Ward nr niet als PK beschouwd. 
+
+2NF:
+patient: *PatientsNr*, paName, waNo, WaName, BedNo
+Drug: 
+(*Drugnr*, Name, Description, Dosage, Method of Admin)
+DB *patientnr, *drugnr*, Un/d, *start*, finish
+
+3NF:
+Ward(*Ward_nr*, Ward_name)
+patient: *PatientsNr*, paName, waNo, BedNo
+Drug:(*Drugnr*, Name, Description, Dosage, Method of Admin)
+DB *patientnr, *drugnr*, Un/d, *start*,	finish
+
+
