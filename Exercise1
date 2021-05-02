@@ -1,0 +1,9 @@
+mkdir ExamenBIT05
+cd Excercises
+git intit
+git remote add origin git@github.com:MarjoleinVDK/ExamenBIT05.git
+git status
+git add Excercise1
+git commit -m "Added Excercise1.txt"
+git push -u origin master
+
